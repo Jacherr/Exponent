@@ -1,6 +1,6 @@
 import { Command } from 'axoncore';
 const superagent = require('superagent')
-const apikeys = require('../../../configs/tokenConf.json').apis
+const apikeys = require('../../../configs/tokenConf.json')
 
 class Screenshot extends Command {
     constructor(module) {
@@ -31,7 +31,7 @@ class Screenshot extends Command {
         superagent
             .post(`https://fapi.wrmsr.io/screenshot`)
             .set({
-                Authorization: apikeys.fapi,
+                Authorization: apikeys.apis.fapi,
                 "Content-Type": "application/json"
             })
             .send({
