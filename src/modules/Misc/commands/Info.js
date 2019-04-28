@@ -68,4 +68,4 @@ class Information extends Command {
     }
 }
 
-export default Ping;
+export default Information;
