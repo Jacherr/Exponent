@@ -31,7 +31,10 @@ class Information extends Command {
     async execute( { msg, args } ) {
         let start = Date.now()
         let message = await this.sendMessage(msg.channel, 'Processing...')
-        if(args) let botuser = await this.Resolver.member(msg.channel.guild, args[0]);
+        let botuser = null;
+        if(args) {
+            botuser = await this.Resolver.member(msg.channel.guild, args[0]);
+        }
         if(msg.attachments.length > 0) {
             msg.attachments.forEach(attachment => {
                 files.push(attachment.url)
