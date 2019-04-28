@@ -27,6 +27,7 @@ class Screenshot extends Command {
     }
 
     async execute( { msg, args } ) {
+        let start = Date.now()
         let message = await this.sendMessage(msg.channel, 'Processing...')
         superagent
             .post(`https://fapi.wrmsr.io/screenshot`)
