@@ -42,13 +42,11 @@ class Information extends Command {
             });
         } else if(!botuser && args.length == 0 && msg.attachments.length == 0) {
             files.push(msg.member.avatarURL)
-            console.log('yes')
         } else if(botuser && args) {
             files.push(botuser.avatarURL)
         } else if(args.length > 0 && !botuser) {
             files.push(args[0])
         }
-        console.log(args.length)
         superagent
             .post(`https://fapi.wrmsr.io/emojimosaic`)
             .set({
