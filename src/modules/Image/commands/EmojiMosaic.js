@@ -32,14 +32,14 @@ class Information extends Command {
         let start = Date.now()
         let message = await this.sendMessage(msg.channel, 'Processing...')
         let botuser = null;
-        if(args) {
+        if(args.length > 0) {
             botuser = await this.Resolver.member(msg.channel.guild, args[0]);
         }
         if(msg.attachments.length > 0) {
             msg.attachments.forEach(attachment => {
                 files.push(attachment.url)
             });
-        } else if(!botuser && !args && !msg.attachments) {
+        } else if(!botuser && args.length == 0 && !msg.attachments) {
             files.push(msg.member.avatarURL)
         } else if(botuser && args) {
             files.push(botuser.avatarURL)
