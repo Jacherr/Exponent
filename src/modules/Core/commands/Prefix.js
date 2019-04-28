@@ -33,10 +33,10 @@ class Prefix extends Command {
             const newPrefix = args[0];
 
             this.axon.registerGuildPrefix(msg.channel.guild.id, [newPrefix] );
-            return this.sendSuccess(msg.channel, `Nouveau prefix enregistré: \`${newPrefix}\``);
+            return this.sendSuccess(msg.channel, `The prefix is now: \`${newPrefix}\``);
         }
 
-        return this.sendMessage(msg.channel, `Le prefix est: \`${prefix}\``);
+        return this.sendMessage(msg.channel, `The prefix is: \`${prefix}\``);
     }
 }
 

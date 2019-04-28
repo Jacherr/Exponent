@@ -44,7 +44,6 @@ class Eval extends Command {
         try {
             evaled = await eval(args.join(' ') ); // eslint-disable-line no-eval
         } catch (err) {
-            this.Logger.debug(err.stack);
             return this.sendMessage(msg.channel, err.message ? err.message : err.name);
         }
 
