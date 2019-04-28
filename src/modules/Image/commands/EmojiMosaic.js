@@ -32,6 +32,7 @@ class Information extends Command {
         let start = Date.now()
         let message = await this.sendMessage(msg.channel, 'Processing...')
         let botuser = null;
+        let files = []
         if(args.length > 0) {
             botuser = await this.Resolver.member(msg.channel.guild, args[0]);
         }
