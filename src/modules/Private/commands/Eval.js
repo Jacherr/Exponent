@@ -55,7 +55,7 @@ class Eval extends Command {
         }
 
         /** Just for security. */
-        evaled = evaled.split(this.bot._token).join('Khaaz Baguette');
+        evaled = evaled.split(this.bot._token).join(' ');
 
         const fullLen = evaled.length;
 

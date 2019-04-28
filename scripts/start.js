@@ -1,7 +1,7 @@
 const pm2 = require('pm2');
 
 // Start process
-console.log('>> Starting Slatoon-Univers');
+console.log('>> Starting Exponent');
 pm2.connect( (err) => {
     if (err) {
         console.error(err);
@@ -10,7 +10,7 @@ pm2.connect( (err) => {
     pm2.start( {
         script: 'index.js',
         args: ['--color'],
-        name: 'Splatoon',
+        name: 'Exponent',
         exec_mode: 'fork',
         max_memory_restart: '1G',
         cwd: 'src',

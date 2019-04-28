@@ -36,7 +36,7 @@ class SUClient extends AxonClient {
         // overrides default editStatus
         // used to setup custom status
         this.client.editStatus(null, {
-            name: 'vous souhaiter la bienvenue !',
+            name: 'Exponent | ..help',
             type: 0,
         } );
     }
