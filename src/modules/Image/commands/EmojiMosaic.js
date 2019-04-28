@@ -44,9 +44,10 @@ class Information extends Command {
             files.push(msg.member.avatarURL)
         } else if(botuser && args) {
             files.push(botuser.avatarURL)
-        } else if(args) {
+        } else if(args && !botuser) {
             files.push(args[0])
         }
+        console.log(args.length)
         superagent
             .post(`https://fapi.wrmsr.io/emojimosaic`)
             .set({
