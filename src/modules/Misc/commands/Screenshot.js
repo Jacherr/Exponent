@@ -1,6 +1,6 @@
 import { Command } from 'axoncore';
 const superagent = require('superagent')
-const apikeys = require('./configs/tokenConf.json').apikeys
+const apikeys = require('../../../configs/tokenConf.json').apikeys
 
 class Screenshot extends Command {
     constructor(module) {
