@@ -3,22 +3,22 @@ import { Module } from 'axoncore';
 import * as commands from './commands/index';
 // const index = require('./index/index');;
 
-class Private extends Module {
+class Misc extends Module {
     constructor(...args) {
         super(...args);
 
-        this.label = 'Private';
+        this.label = 'Misc';
 
         this.enabled = true;
         this.serverBypass = true;
 
         this.infos = {
-            name: 'Private',
-            description: 'Development commands.',
+            name: 'Misc',
+            description: 'Miscellaneous commands that don\'t belong anywhere else.',
         };
 
         this.init(commands);
     }
 }
 
-export default Private;
+export default Misc;

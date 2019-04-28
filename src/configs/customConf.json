@@ -2,7 +2,8 @@
     "general": {
         "name": "Exponent",
         "description": "A bot developed using the AxonCore Framework",
-        "version": "Private Alpha"
+        "version": "Private Alpha",
+        "library": "Eris"
     },
     
     "prefix": {
