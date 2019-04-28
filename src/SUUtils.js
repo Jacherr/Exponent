@@ -1,4 +1,6 @@
 import { Utils } from 'axoncore';
+const superagent = require('superagent');
+const apikeys = require('./configs/tokenConf.json').apikeys
 
 class SUUtils extends Utils {
     constructor(...args) {
@@ -17,7 +19,7 @@ class SUUtils extends Utils {
         num = parseInt(num, 16);
         return [num >> 16, num >> 8 & 255, num & 255]; // eslint-disable-line
     }
-
+  
     /**
      * Convert a rgb code into a hex code
      *
@@ -26,6 +28,26 @@ class SUUtils extends Utils {
      */
     rgbTOhex(red, green, blue) {
         return ((blue | green << 8 | red << 16) | 1 << 24).toString(16).slice(1); // eslint-disable-line
+    }
+
+    sendFapiRequest(endpoint, args) {
+            superagent
+            .post(`https://fapi.wrmsr.io/${endpoint}`)
+            .set({
+                Authorization: apikeys.fapi,
+                "Content-Type": "application/json"
+            })
+            .send({
+                args
+            })
+            .end((err, response) => {
+                if (err) {
+                    return err
+                }
+                else {
+                    return response
+                };
+            });
     }
 }
 

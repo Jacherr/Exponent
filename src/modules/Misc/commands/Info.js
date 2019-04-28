@@ -61,6 +61,10 @@ class Information extends Command {
                         name: 'Library',
                         value: this.axon.infos.library,
                         inline: true
+                    },
+                    {
+                        name: 'Development',
+                        value: '[Development Server](https://discord.gg/X4Rsd5s)'
                     }
                 ]
             }
