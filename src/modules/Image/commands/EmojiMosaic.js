@@ -40,7 +40,7 @@ class Information extends Command {
             msg.attachments.forEach(attachment => {
                 files.push(attachment.url)
             });
-        } else if(!botuser && args.length < 1 && !msg.attachments) {
+        } else if(!botuser && args.length > 0 && msg.attachments.length > 0) {
             files.push(msg.member.avatarURL)
             console.log('yes')
         } else if(botuser && args) {
