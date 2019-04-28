@@ -1,7 +1,7 @@
 {
     "general": {
         "name": "Exponent",
-        "description": "A bot developed using the AxonCore Library",
+        "description": "A bot developed using the AxonCore Framework",
         "version": "Private Alpha"
     },
     
@@ -28,6 +28,6 @@
 
     "debugMode": false,
 
-    "logger": 0,
+    "logger": 1,
     "db": 0
 }
