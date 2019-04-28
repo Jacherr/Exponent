@@ -1,0 +1,71 @@
+{
+    "mainGuild": "404700852566360076",
+    "moderationRole": "467709248739082240",
+    "administrationRole": "569851254965010471",
+    "modlogChannels": ["552900779800002570", "531125328370728962"],
+
+    "muteRole": "569917695903137802",
+
+    "Announcement": {
+        "acceuil": {
+            "id": "549255397664489503",
+            "message": "<:FOND:540187797299134464>\n{user} **Bienvenue sur le serveur de Splatoon Univers [FR] !**\n\n`Lis le salon` <#456493908554416128> `et valide le pour avoir accès aux salons du serveur !`\n\nAmuses toi bien parmi nous et n'hésites pas poser des questions aux **<@&558259060508721153>** !\n<:FOND:540187797299134464>"
+        },
+        "general": {
+            "id": "568464383873908737",
+            "message": "<:FOND:540187797299134464>\n{user} **Bienvenue sur le serveur Splatoon Univers [FR] !**\n\n`Tu es le {membercount}ème membre sur ce serveur, nous te souhaitons une bonne visite des lieux !`\n\nPour que ce serveur discord permette à chacun d’être bien dans ses baskets, nous t'invitons à lire attentivement le salon <#456493908554416128> !\n\nAmuses toi bien parmi nous et n'hésites pas poser des questions aux **<@&558259060508721153>** !\n<:FOND:540187797299134464>"
+        }
+    },
+
+    "general": {
+        "name": "Splatoon Univers",
+        "description": "Community Bot made with Eris and AxonCore",
+        "version": "1.0.0",
+        "library": "eris"
+    },
+
+    "links": {
+        "website": "",
+        "invite": "",
+        "server": "",
+    
+        "github": "https://github.com/Khaazz/SplatoonUnivers",
+        "trello": "",
+        "sentry": "",
+        "grafana": ""
+    },
+    
+    "prefix": {
+        "general": "a!",
+        "owner": "!!",
+        "admin": "a."
+    },
+    
+    "staff": {
+        "owners": [ 
+            {
+                "name": "KhaaZ#0001",
+                "id": "179908288337412096"
+            },
+            {
+                "name": "Néxi#9999",
+                "id": "376729869985382401"
+            }
+        ],
+        "admins": [ 
+            {
+                "name": "KhaaZ#0001",
+                "id": "179908288337412096"
+            },
+            {
+                "name": "Néxi#9999",
+                "id": "376729869985382401"
+            }
+        ]
+    },
+
+    "debugMode": false,
+
+    "logger": 1,
+    "db": 0
+}
