@@ -40,11 +40,12 @@ class Information extends Command {
             msg.attachments.forEach(attachment => {
                 files.push(attachment.url)
             });
-        } else if(!botuser && args.length == 0 && !msg.attachments) {
+        } else if(!botuser && args.length < 1 && !msg.attachments) {
             files.push(msg.member.avatarURL)
+            console.log('yes')
         } else if(botuser && args) {
             files.push(botuser.avatarURL)
-        } else if(args && !botuser) {
+        } else if(args.length > 0 && !botuser) {
             files.push(args[0])
         }
         console.log(args.length)
