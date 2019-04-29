@@ -42,7 +42,8 @@ class Screenshot extends Command {
             })
             .end((err, response) => {
                 if (err) {
-                    message.edit(`${err.body.toString()}`);
+                    console.log(err)
+                    message.edit(`${err.toString()}`);
                 }
                 else {
                     message.delete();
