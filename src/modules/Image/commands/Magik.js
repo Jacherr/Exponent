@@ -80,7 +80,7 @@ class Information extends Command {
                     if(extension.startsWith('png') || extension.startsWith('jpeg') || extension.startsWith('jpg')) {
                         this.sendMessage(msg.channel, ` `,{ file: response.body, name: `magik.png` });
                     } else {
-                        thgis.sendMessage(msg.channel, ` `,{ file: response.body, name: `magik.gif` });
+                        this.sendMessage(msg.channel, ` `,{ file: response.body, name: `magik.gif` });
                     }     
                 };
             });
