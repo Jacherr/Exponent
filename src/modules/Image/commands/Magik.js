@@ -77,7 +77,11 @@ class Information extends Command {
                 }
                 else {
                     message.delete();
-                    msg.channel.createMessage(`\`${Date.now() - start}ms\``, { file: response.body, name: `magik.png` });
+                    if(extension.startsWith('png') || extension.startsWith('jpeg') || extension.startsWith('jpg')) {
+                        this.sendMessage(msg.channel, ` `,{ file: response.body, name: `magik.png` });
+                    } else {
+                        thgis.sendMessage(msg.channel, ` `,{ file: response.body, name: `magik.gif` });
+                    }     
                 };
             });
     }
