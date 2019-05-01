@@ -87,4 +87,4 @@ class Information extends Command {
     }
 }
 
-export default Information;
+export default Magik;
