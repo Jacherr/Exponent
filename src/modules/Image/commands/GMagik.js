@@ -1,5 +1,4 @@
 import { Command } from 'axoncore';
-import { execFileSync } from 'child_process';
 const superagent = require('superagent')
 const apikeys = require('../../../configs/tokenConf.json')
 
@@ -77,11 +76,7 @@ class GMagik extends Command {
                 }
                 else {
                     message.delete();
-                    if(extension.startsWith('png') || extension.startsWith('jpeg') || extension.startsWith('jpg')) {
-                        msg.channel.createMessage(`\`${Date.now() - start}ms\``,{ file: response.body, name: `magik.png` });
-                    } else {
-                        msg.channel.createMessage(`\`${Date.now() - start}ms\``,{ file: response.body, name: `magik.gif` });
-                    }     
+                    msg.channel.createMessage(`\`${Date.now() - start}ms\``,{ file: response.body, name: `magik.gif` });  
                 };
             });
     }

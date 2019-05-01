@@ -1,5 +1,4 @@
 import { Command } from 'axoncore';
-import { execFileSync } from 'child_process';
 const superagent = require('superagent')
 const apikeys = require('../../../configs/tokenConf.json')
 
