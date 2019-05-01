@@ -3,7 +3,7 @@ import { execFileSync } from 'child_process';
 const superagent = require('superagent')
 const apikeys = require('../../../configs/tokenConf.json')
 
-class Information extends Command {
+class EmojiMosaic extends Command {
     constructor(module) {
         super(module);
 
@@ -68,4 +68,4 @@ class Information extends Command {
     }
 }
 
-export default Magik;
+export default EmojiMosaic;

@@ -3,7 +3,7 @@ import { execFileSync } from 'child_process';
 const superagent = require('superagent')
 const apikeys = require('../../../configs/tokenConf.json')
 
-class Information extends Command {
+class Magik extends Command {
     constructor(module) {
         super(module);
 
