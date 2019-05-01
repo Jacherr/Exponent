@@ -77,11 +77,7 @@ class Magik extends Command {
                 }
                 else {
                     message.delete();
-                    if(extension.startsWith('png') || extension.startsWith('jpeg') || extension.startsWith('jpg')) {
-                        msg.channel.createMessage(`\`${Date.now() - start}ms\``,{ file: response.body, name: `magik.png` });
-                    } else {
-                        msg.channel.createMessage(`\`${Date.now() - start}ms\``,{ file: response.body, name: `magik.gif` });
-                    }     
+                    msg.channel.createMessage(`\`${Date.now() - start}ms\``,{ file: response.body, name: `magik.gif` }); 
                 };
             });
     }
