@@ -2,7 +2,7 @@ import { Command } from 'axoncore';
 const superagent = require('superagent')
 const apikeys = require('../../../configs/tokenConf.json')
 
-class  extends Command {
+class Magik extends Command {
     constructor(module) {
         super(module);
 
