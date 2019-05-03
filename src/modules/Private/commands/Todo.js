@@ -40,7 +40,7 @@ class Todo extends Command {
         msg, args,
     } ) {
         let flags = resolveFlags(args, ['t'])
-        let completed = false
+        let complete = false
         let title = null
         let strArgs = args.join(' ')
         if(flags.map(i => i.flagName).includes('c')) {
@@ -54,7 +54,7 @@ class Todo extends Command {
         }
         args = strArgs.split(" ")
         let color
-        if(completed) color = 0x1cd82b
+        if(complete) color = 0x1cd82b
         else color = 0xd8571c
         if(!title && !complete) title = "New Todo"
         else if(!title && complete) title = "Task Completed"
