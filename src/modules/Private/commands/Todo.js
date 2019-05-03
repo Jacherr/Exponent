@@ -45,12 +45,12 @@ class Todo extends Command {
         let strArgs = args.join(' ')
         if(flags.map(i => i.flagName).includes('c')) {
             complete = true
-            strArgs.replace('--c', "")
+            strArgs.replace(/--t/g, "")
         }
         if(flags.map(i => i.flagName).includes('t')) {
             title = flags.find(i => i.flagName == 't').flagContent
-            strArgs.replace('--t', "")
-            strArgs.replace(flags.find(i => i.flagName == 't').flagContent, "")
+            strArgs.replace(/--t/g, "")
+            strArgs.replace(new RegExp(`/${flags.find(i => i.flagName == 't').flagContent, ""}/`, `g`), "")
         }
         let color
         if(complete) color = 0x1cd82b
