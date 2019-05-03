@@ -52,7 +52,6 @@ class Todo extends Command {
             strArgs.replace('--t', "")
             strArgs.replace(flags.find(i => i.flagName == 't').flagContent, "")
         }
-        args = strArgs.split(" ")
         let color
         if(complete) color = 0x1cd82b
         else color = 0xd8571c
@@ -66,7 +65,7 @@ class Todo extends Command {
                 },
                 color: color,
                 title: title,
-                description: args.join(' ')
+                description: strArgs
             }
         })
         this.sendMessage(msg.channel, `${this.template.emote.success} Todo submitted.`)
