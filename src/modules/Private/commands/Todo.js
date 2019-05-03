@@ -44,7 +44,7 @@ class Todo extends Command {
         let title = null
         let strArgs = args.join(' ')
         if(flags.map(i => i.flagName).includes('c')) {
-            completed = true
+            complete = true
             strArgs.replace('-c', "")
         }
         if(flags.map(i => i.flagName).includes('t')) {
