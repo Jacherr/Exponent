@@ -45,11 +45,11 @@ class Todo extends Command {
         let strArgs = args.join(' ')
         if(flags.map(i => i.flagName).includes('c')) {
             complete = true
-            strArgs.replace('-c', "")
+            strArgs.replace('--c', "")
         }
         if(flags.map(i => i.flagName).includes('t')) {
             title = flags.find(i => i.flagName == 't').flagContent
-            strArgs.replace('-t', "")
+            strArgs.replace('--t', "")
             strArgs.replace(flags.find(i => i.flagName == 't').flagContent, "")
         }
         args = strArgs.split(" ")
@@ -69,6 +69,7 @@ class Todo extends Command {
                 description: args.join(' ')
             }
         })
+        this.sendMessage(msg.channel, `${this.template.emote.success} Todo submitted.`)
     }
 }
 
