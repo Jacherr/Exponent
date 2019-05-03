@@ -1,6 +1,4 @@
 import { Command } from 'axoncore';
-const todos = require('./todos.json').todo
-const fs = require('fs')
 
 function resolveFlags(args, ArgFlags) {
     let flags = []
