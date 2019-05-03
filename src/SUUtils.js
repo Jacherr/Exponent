@@ -49,6 +49,20 @@ class SUUtils extends Utils {
                 };
             });
     }
+    
+    resolveFlags(args, ArgFlags) {
+        let flags = []
+        for(let i = 0; i < args.length; i++) {
+            if(args[i].startsWith('--')) {
+                if(!ArgFlags.includes(args[i].substr(2, args[i].length)) || i == args.length) {
+                    flags.push({flagName: args[i].substr(2, args[i].length), flagContent: null})
+                } else {
+                    flags.push({flagName: args[i].substr(2, args[i].length), flagContent: args[i + 1]})
+                }
+            }
+        }
+        return flags
+    }
 }
 
 export default SUUtils;
