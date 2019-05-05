@@ -39,7 +39,7 @@ class ImageScript extends Command {
             })
             .send({
                 args: {
-                    text: args,
+                    text: [args],
                 }
             })
             .end((err, response) => {
