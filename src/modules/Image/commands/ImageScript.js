@@ -31,6 +31,7 @@ class ImageScript extends Command {
     async execute( { msg, args } ) {
         let start = Date.now()
         let message = await this.sendMessage(msg.channel, 'Processing...')
+        let toSend = args.join(' ')
         superagent
             .post(`https://fapi.wrmsr.io/image_tag`)
             .set({
@@ -39,7 +40,7 @@ class ImageScript extends Command {
             })
             .send({
                 args: {
-                    text: [args],
+                    text: toSend,
                 }
             })
             .end((err, response) => {
