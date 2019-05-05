@@ -45,7 +45,7 @@ class ImageScript extends Command {
             })
             .end((err, response) => {
                 if (err) {
-                    message.edit(`${err.toString()}`);
+                    message.edit(`${response.text}`);
                 }
                 else {
                     message.delete()
