@@ -49,7 +49,7 @@ class ImageScript extends Command {
                 }
                 else {
                     message.delete()
-                    msg.channel.createMessage(`${Date.now() - start}ms`, { file: response.body, name: `imagescript.png` })
+                    msg.channel.createMessage(`\`${Date.now() - start}ms\``, { file: response.body, name: `imagescript.png` })
                 };
             });
     }
