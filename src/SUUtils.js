@@ -1,6 +1,6 @@
 import { Utils } from 'axoncore';
 const superagent = require('superagent');
-const apikeys = require('./configs/tokenConf.json').apikeys
+const apikeys = require('./configs/tokenConf.json').apis
 
 class SUUtils extends Utils {
     constructor(...args) {
