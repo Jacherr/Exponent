@@ -17,7 +17,7 @@
 
     "message": {
         "error": {
-            "permBot": "I'm don't have permission to that. I'm missing: ",
+            "permBot": "I don't have permission to that. I'm missing: ",
             "permSource": "You don't have permission to do that. You're missing: ",
             "permTarget": "This user is a mod/admin, I can't do that.",
             "cooldown": "You're using commands too fast.",

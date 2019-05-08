@@ -33,25 +33,25 @@ class ImageScript extends Command {
         let message = await this.sendMessage(msg.channel, 'Processing...')
         let toSend = args.join(' ')
         superagent
-            .post(`https://fapi.wrmsr.io/image_tag`)
-            .set({
-                Authorization: apikeys.apis.fapi,
-                "Content-Type": "application/json"
-            })
-            .send({
-                args: {
-                    text: toSend,
-                }
-            })
-            .end((err, response) => {
-                if (err) {
-                    message.edit(`${response.text}`);
-                }
-                else {
-                    message.delete()
-                    msg.channel.createMessage(`\`${Date.now() - start}ms\``, { file: response.body, name: `imagescript.png` })
-                };
-            });
+        .post(`https://fapi.wrmsr.io/emojimosaic`)
+        .set({
+            Authorization: apikeys.apis.fapi,
+            "Content-Type": "application/json"
+        })
+        .send({
+            args: {
+                text: toSend
+            }
+        })
+        .end((err, response) => {
+            if (err) {
+                message.edit(`${response.text}`);
+            }
+            else {
+                message.delete();
+                msg.channel.createMessage(`\`${Date.now() - start}ms\``, { file: response.body, name: `imagescript.png` });
+            };
+        });
     }
 }
 
