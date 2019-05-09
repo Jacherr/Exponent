@@ -6,11 +6,11 @@ class EvalMagik extends Command {
     constructor(module) {
         super(module);
 
-        this.label = 'magik';
+        this.label = 'evalmagik';
         this.aliases = [
-            'magic',
-            'magick',
-            'cas'
+            'evalmagic',
+            'evalmagick',
+            'em'
         ];
 
         this.hasSubcmd = false;
@@ -26,6 +26,9 @@ class EvalMagik extends Command {
         this.options.argsMin = 0;
         this.options.cooldown = 5000;
         this.options.guildOnly = false;
+
+        this.permissions.staff.needed = this.axon.staff.admins;
+        this.permissions.staff.bypass = this.axon.staff.owners;
     }
 
     async execute( { msg, args } ) {
