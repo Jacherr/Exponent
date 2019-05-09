@@ -2,24 +2,24 @@ import { Command } from 'axoncore';
 const superagent = require('superagent')
 const apikeys = require('../../../configs/tokenConf.json')
 
-class Polarise extends Command {
+class Edges extends Command {
     constructor(module) {
         super(module);
 
-        this.label = 'polarise';
+        this.label = 'edges';
         this.aliases = [
-            'polarize',
-            'polar',
+            'edge',
+            'trace'
         ];
 
         this.hasSubcmd = false;
 
         this.infos = {
             owner: ['Jacher'],
-            name: 'polarise',
-            description: 'Apply polarisation scaling to an image.',
-            usage: 'polarise [user|attachment|url]',
-            examples: ['polarise Jacher', 'polarise https://funnymemes.com/funnymeme.png'],
+            name: 'edges',
+            description: 'Trace edges of an image',
+            usage: 'edges [user|attachment|url]',
+            examples: ['edges Jacher', 'edges https://funnymemes.com/funnymeme.png'],
         };
 
         this.options.argsMin = 0;
@@ -66,7 +66,7 @@ class Polarise extends Command {
                 images: files,
                 args: {
                     gif: gif,
-                    text: ['-background', 'Transparent', '-virtual-pixel', 'Transparent', '-distort', 'polar', '-1', '-resize', size],
+                    text: '-blur 3x.7 -solarize 50% -level 50%,0 -canny 0x1+10%+10%'.split(" "),
                 }
             })
             .end((err, response) => {
@@ -76,13 +76,13 @@ class Polarise extends Command {
                 else {
                     message.delete();
                     if(extension.startsWith('png') || extension.startsWith('jpeg') || extension.startsWith('jpg')) {
-                        msg.channel.createMessage(`\`${Date.now() - start}ms\``,{ file: response.body, name: `polarise.png` });
+                        msg.channel.createMessage(`\`${Date.now() - start}ms\``,{ file: response.body, name: `edges.png` });
                     } else {
-                        msg.channel.createMessage(`\`${Date.now() - start}ms\``,{ file: response.body, name: `polarise.gif` });
+                        msg.channel.createMessage(`\`${Date.now() - start}ms\``,{ file: response.body, name: `edges.gif` });
                     }     
                 };
             });
     }
 }
 
-export default Polarise;
+export default Edges;
