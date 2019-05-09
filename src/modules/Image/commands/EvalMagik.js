@@ -10,7 +10,7 @@ class EvalMagik extends Command {
         this.aliases = [
             'evalmagic',
             'evalmagick',
-            'em'
+            'evm'
         ];
 
         this.hasSubcmd = false;
