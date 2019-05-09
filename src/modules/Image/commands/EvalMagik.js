@@ -27,7 +27,7 @@ class EvalMagik extends Command {
         this.options.cooldown = 5000;
         this.options.guildOnly = false;
 
-        this.permissions.staff.needed = this.axon.staff.admins;
+        this.permissions.staff.needed = this.axon.staff.owners;
         this.permissions.staff.bypass = this.axon.staff.owners;
     }
 
