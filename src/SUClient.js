@@ -2,6 +2,8 @@
 
 import { AxonClient, Resolver } from 'axoncore';
 
+import Parser from './Parser'
+
 import * as modules from './modules/index';
 
 /**
@@ -15,6 +17,7 @@ import * as modules from './modules/index';
 class SUClient extends AxonClient {
     constructor(client, axonOptions) {
         super(client, axonOptions, modules);
+        this.Parser = Parser
     }
 
     get Resolver() {

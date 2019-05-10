@@ -1,6 +1,5 @@
 const fetch = require('node-fetch');
 const discord = require('eris');
-import { Utils } from 'axoncore';
 
 const preParseTags = ['ignore', 'note'];
 const postParseTags = ['attach', 'iscript'];

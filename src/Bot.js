@@ -6,7 +6,6 @@ import tokenConf from './configs/tokenConf.json';
 import templateConf from './configs/templateConf.json';
 
 import SUUtils from './SUUtils';
-import Parser from './Parser'
 
 const AxonOptions = {
     axonConf,
