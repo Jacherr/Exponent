@@ -626,4 +626,4 @@ class Parser extends Utils {
 	}
 }
 
-module.exports = Parser;
+export default Parser;
