@@ -10,7 +10,6 @@ class Parser {
 	constructor(client, context) {
 		this.client = client;
 		this.context = context;
-		this.apiConnector = new APIConnector(client);
 
 		this.stackSize = 0;
 		this.rexCalls = 0;
@@ -520,12 +519,17 @@ class Parser {
 					this.rexCalls++;
 					if (this.rexCalls > 2) return '[TOO MANY REX CALLS]';
 
-					const rexResult = await this.apiConnector.sendAPIRequest('rextester', {
-						args: {
-							language: key,
-							text: Parser.unescapeTag(rawArgs)
-						}
-					});
+					const rexResult = await superagent
+                    .post('https://rextester.com/rundotnet/api')
+                    .set({
+                        "Content-Type": "application/json"
+                    })
+                    .send({
+                        LanguageChoice: key,
+                        Program: Parser.unescapeTag(rawArgs),
+                        Input: "",
+                        CompilerArgs: compilerArgs
+                    })
 
 					return Parser.escapeTag(rexResult.toString());
 				}
