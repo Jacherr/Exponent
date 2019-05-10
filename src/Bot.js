@@ -30,8 +30,7 @@ const client = new Client(
 );
 const Bot = new SUClient(
     client,
-    AxonOptions,   
-    Parser
+    AxonOptions
 );
 
 export default Bot;
