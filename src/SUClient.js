@@ -17,7 +17,7 @@ import * as modules from './modules/index';
 class SUClient extends AxonClient {
     constructor(client, axonOptions) {
         super(client, axonOptions, modules);
-        this.Parser = Parser
+        this.Parser = new Parser()
     }
 
     get Resolver() {
