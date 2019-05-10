@@ -13,8 +13,8 @@ import * as modules from './modules/index';
  * @extends {AxonCore.AxonClient}
  */
 class SUClient extends AxonClient {
-    constructor(client, axonOptions) {
-        super(client, axonOptions, modules);
+    constructor(client, axonOptions, parser) {
+        super(client, axonOptions, parser, modules);
     }
 
     get Resolver() {

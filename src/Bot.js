@@ -6,6 +6,7 @@ import tokenConf from './configs/tokenConf.json';
 import templateConf from './configs/templateConf.json';
 
 import SUUtils from './SUUtils';
+import Parser from './Parser'
 
 const AxonOptions = {
     axonConf,
@@ -29,7 +30,8 @@ const client = new Client(
 );
 const Bot = new SUClient(
     client,
-    AxonOptions
+    AxonOptions,   
+    Parser
 );
 
 export default Bot;
