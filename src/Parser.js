@@ -520,15 +520,15 @@ class Parser {
 					if (this.rexCalls > 2) return '[TOO MANY REX CALLS]';
 
 					const rexResult = await superagent
-                    .post('https://rextester.com/rundotnet/api')
+                    .post('https://fapi.wrmsr.io/rextester')
                     .set({
                         "Content-Type": "application/json"
                     })
                     .send({
-                        LanguageChoice: key,
-                        Program: Parser.unescapeTag(rawArgs),
-                        Input: "",
-                        CompilerArgs: compilerArgs
+						args: {
+							language: key,
+							text: Parser.unescapeTag(rawArgs)
+						}
                     })
 
 					return Parser.escapeTag(rexResult.toString());
