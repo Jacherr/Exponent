@@ -33,7 +33,7 @@ class ImageScript extends Command {
         let message = await this.sendMessage(msg.channel, 'Processing...')
         let toSend = args.join(' ')
         superagent
-        .post(`https://fapi.wrmsr.io/imagetagparser`)
+        .post(`https://fapi.wrmsr.io/parse_tag`)
         .set({
             Authorization: apikeys.apis.fapi,
             "Content-Type": "application/json"
