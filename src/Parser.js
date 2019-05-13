@@ -4,6 +4,7 @@ const discord = require('eris');
 const preParseTags = ['ignore', 'note'];
 const postParseTags = ['attach', 'iscript'];
 
+const superagent = require('superagent');
 const rexLangs = ['c#', 'visualbasic', 'vb', 'f#', 'java', 'python2', 'python2.7', 'py2.7', 'py2', 'c(gcc)', 'c', 'c++(gcc)', 'c++', 'cpp', 'php', 'php7', 'pascal', 'objective-c', 'oc', 'haskell', 'hs', 'ruby', 'rb', 'perl', 'lua', 'assembly', 'asm', 'sqlserver', 'javascript', 'js', 'commonlisp', 'lisp', 'prolog', 'go', 'scala', 'scheme', 'node.js', 'node', 'python', 'python3', 'py', 'py3', 'octave', 'c(clang)', 'c++(clang)', 'c++(vc++)', 'c(vc)', 'd', 'r', 'tcl', 'mysql', 'postgresql', 'psql', 'postgres', 'oracle', 'swift', 'bash', 'ada', 'erlang', 'elixir', 'ex', 'ocaml', 'kotlin', 'kot', 'brainfuck', 'bf', 'fortran', 'fort'];
 
 class Parser {
