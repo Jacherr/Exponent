@@ -26,6 +26,9 @@ class Parser {
 	}
 
 	async parse(input, tagArgs, tag) {
+		this.stackSize = 0;
+		this.rexCalls = 0;
+		this.hasteCalls = 0;
 		try {
 			const result = await this.subParse(input, tagArgs, tag, false, true);
 			return { success: true, nsfw: this.nsfw, attachments: this.attachments, imagescripts: this.imagescripts, result: Parser.unescapeTag(result).replace(/\\{/g, '{').replace(/\\}/g, '}') };
