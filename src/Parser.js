@@ -524,8 +524,8 @@ class Parser {
 					const rexResult = await superagent
                     .post('https://fapi.wrmsr.io/rextester')
                     .set({
-                        "Content-Type": "application/json"
-'Authorisation': token.fapi
+                        "Content-Type": "application/json",
+						Authorization: token.fapi
                     })
                     .send({
 						args: {
