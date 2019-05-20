@@ -29,7 +29,7 @@ class Parse extends Command {
         if (!result || !result.result) {
             return this.sendError(msg.channel, 'Nothing got returned... hmm')
         }
-        return this.sendMessage(msg.channel, result.result)
+        return this.sendMessage(msg.channel, require('util').inspect(result.result))
     }
 }
 
