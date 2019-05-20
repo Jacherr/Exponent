@@ -25,8 +25,11 @@ class Parse extends Command {
     async execute( {
         msg, args,
     } ) {
-        let result = this.axon.Parser.parse(args.join(' '), '', '').then(a => a.result)
-        this.sendMessage(msg.channel, result)
+        let result = await this.axon.Parser.parse(args.join(' '), ' ', ' ')
+        if (!result || !result.result) {
+            return this.sendError(msg.channel, 'Nothing got returned... hmm')
+        }
+        return this.sendMessage(msg.channel, result.result)
     }
 }
 
