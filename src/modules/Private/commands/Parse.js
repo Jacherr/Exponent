@@ -26,7 +26,7 @@ class Parse extends Command {
         msg, args,
     } ) {
         let result = this.axon.Parser.parse(args.join(' '), '', '').then(a => a.result)
-        this.sendMessage(result)
+        this.sendMessage(msg.channel, result)
     }
 }
 
