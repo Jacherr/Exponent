@@ -537,7 +537,7 @@ class Parser {
 						}
                     })
 
-					return Parser.escapeTag(rexResult.toString());
+					return Parser.escapeTag(rexResult);
 				}
 
 				return `{${key}${rawArgs ? `:${rawArgs}` : ''}}`;
