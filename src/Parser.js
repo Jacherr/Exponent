@@ -29,6 +29,8 @@ class Parser {
 		this.stackSize = 0;
 		this.rexCalls = 0;
 		this.hasteCalls = 0;
+		this.imagescripts = [];
+		this.attachments = [];
 		try {
 			const result = await this.subParse(input, tagArgs, tag, false, true);
 			return { success: true, nsfw: this.nsfw, attachments: this.attachments, imagescripts: this.imagescripts, result: Parser.unescapeTag(result).replace(/\\{/g, '{').replace(/\\}/g, '}') };
