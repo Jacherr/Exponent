@@ -57,7 +57,8 @@ class Parse extends Command {
         if(result.attachments.length > 0) {
             result.attachments.forEach(attachment => {
                 attachmentsToSend.push(attachment.url)
-        })
+            })
+        }
         if (!result.result && !result.attachments && !result.imagescripts) {
             return this.sendError(msg.channel, 'Nothing got returned')
         }
