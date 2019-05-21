@@ -32,9 +32,9 @@ class Parse extends Command {
         let attachmentsToSend = []
         if (result.result) {
             toSend = result.result
-        }
+        } 
         if (result.imagescripts.length > 0) {
-            let currentResult = await superagent
+            superagent
         .post(`https://fapi.wrmsr.io/parse_tag`)
         .set({
             Authorization: apikeys.apis.fapi,
@@ -62,9 +62,9 @@ class Parse extends Command {
         if (!result.result && !result.attachments && !result.imagescripts) {
             return this.sendError(msg.channel, 'Nothing got returned')
         }
-        msg.channel.createMessage(toSend)
+        if(toSend) msg.channel.createMessage(toSend)
         attachmentsToSend.forEach(attachment => {
-            msg.channel.createMessage('', {file: attachment, name: 'attachment.png'})
+            msg.channel.createMessage('', {file: new Buffer(attachment), name: 'attachment.png'})
         })
     }
                 

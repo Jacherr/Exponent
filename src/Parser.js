@@ -24,13 +24,10 @@ class Parser {
 
 		this.variables = new Map();
 	}
-
 	async parse(input, tagArgs, tag) {
 		this.stackSize = 0;
 		this.rexCalls = 0;
 		this.hasteCalls = 0;
-		this.imagescripts = [];
-		this.attachments = [];
 		try {
 			const result = await this.subParse(input, tagArgs, tag, false, true);
 			return { success: true, nsfw: this.nsfw, attachments: this.attachments, imagescripts: this.imagescripts, result: Parser.unescapeTag(result).replace(/\\{/g, '{').replace(/\\}/g, '}') };
@@ -38,7 +35,6 @@ class Parser {
 			return { success: false, nsfw: false, attachments: [], imagescripts: [], result: `:warning: ${err.message}` };
 		}
 	}
-
 	async subParse(input, tagArgs, tag, filter, initial) {
 		this.stackSize++;
 		if (this.stackSize > 1000)
@@ -95,7 +91,6 @@ class Parser {
 
 		return input;
 	}
-
 	async getData(key, rawArgs, splitArgs, args, tag) {
 		key = key.trim();
 		rawArgs = rawArgs.trim();
