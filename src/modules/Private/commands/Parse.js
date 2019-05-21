@@ -1,4 +1,6 @@
 import { Command } from 'axoncore';
+const apikeys = require('../../../configs/tokenConf.json')
+const superagent = require('superagent')
 
 class Parse extends Command {
     constructor(module) {
@@ -26,11 +28,45 @@ class Parse extends Command {
         msg, args,
     } ) {
         let result = await this.axon.Parser.parse(args.join(' '), ' ', ' ')
-        if (!result || !result.result) {
-            return this.sendError(msg.channel, 'Nothing got returned... hmm')
+        let toSend
+        let attachmentsToSend = []
+        if (result.result) {
+            toSend = result.result
         }
-        return this.sendMessage(msg.channel, require('util').inspect(result.result))
+        if (result.imagescripts.length > 0) {
+            let currentResult = await superagent
+        .post(`https://fapi.wrmsr.io/parse_tag`)
+        .set({
+            Authorization: apikeys.apis.fapi,
+            "Content-Type": "application/json"
+        })
+        .send({
+            args: {
+                text: result.imagescripts[0].script
+            }
+        })
+        .end((err, response) => {
+            if (err) {
+                this.sendError(`An error occurred executing imagescript: ${response.text}`)
+            }
+            else {
+                attachmentsToSend.push(response.body)
+            };
+        });
+        }
+        if(result.attachments.length > 0) {
+            result.attachments.forEach(attachment => {
+                attachmentsToSend.push(attachment.url)
+        })
+        if (!result.result && !result.attachments && !result.imagescripts) {
+            return this.sendError(msg.channel, 'Nothing got returned')
+        }
+        msg.channel.createMessage(toSend)
+        attachmentsToSend.forEach(attachment => {
+            msg.channel.createMessage('', {file: attachment, name: 'attachment.png'})
+        })
     }
+                
 }
 
 export default Parse;
