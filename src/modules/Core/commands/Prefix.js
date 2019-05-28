@@ -11,8 +11,8 @@ class Prefix extends Command {
             owner: ['KhaaZ'],
             name: 'prefix',
             description: 'See or change the guild prefix.',
-            usage: 'prefix [prefix]',
-            examples: ['prefix', 'prefix e!'],
+            usage: 'prefix [prefix] <--s | Require space>',
+            examples: ['prefix', 'prefix e!', 'prefix expo --s'],
         };
 
         this.serverBypass = true;
@@ -30,12 +30,21 @@ class Prefix extends Command {
         const prefix = (guildConf.prefix.length ? guildConf.prefix : this.axon.params.prefix)[0];
 
         if (args[0] ) {
-            const newPrefix = args[0];
-
-            this.axon.registerGuildPrefix(msg.channel.guild.id, [newPrefix] );
-            return this.sendSuccess(msg.channel, `The prefix is now: \`${newPrefix}\``);
+            const flags = this.axon.Utils.resolveFlags(args, [])
+            const flagNames = flags.map(i => i.flagName)
+            let newPrefix
+            if(flagNames.includes("s")) {
+                args.join(" ").replace(/--s/g, "")
+                args.split(" ")
+                newPrefix = `${args[0]} `;
+                this.axon.registerGuildPrefix(msg.channel.guild.id, [`${newPrefix} `]);
+                return this.sendSuccess(msg.channel, `The prefix is now \`${newPrefix}\` and it requires a space.`);
+            } else {
+                newPrefix = `${args[0]}`;
+                this.axon.registerGuildPrefix(msg.channel.guild.id, [`${newPrefix}`]);
+                return this.sendSuccess(msg.channel, `The prefix is now \`${newPrefix}\``);
+            }
         }
-
         return this.sendMessage(msg.channel, `The prefix is: \`${prefix}\``);
     }
 }
