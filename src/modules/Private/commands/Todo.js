@@ -51,7 +51,7 @@ class Todo extends Command {
         if(flags.map(i => i.flagName).includes('t')) {
             title = flags.find(i => i.flagName == 't').flagContent
             let partA = strArgs.replace(/--t /g, "")
-            let partB = partA.replace(new RegExp(`/${flags.find(i => i.flagName == 't').flagContent, ""}/`, `g`), "")
+            let partB = partA.replace(new RegExp(`/${flags.find(i => i.flagName == 't').flagContent, ""} /`, `g`), "")
             strArgs = partB
         }
         let color
