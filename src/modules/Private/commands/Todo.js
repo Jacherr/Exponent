@@ -25,7 +25,7 @@ class Todo extends Command {
             owner: ['Jacher'],
             name: 'todo',
             description: 'Add an item to the todo list.',
-            usage: 'todo [thing to do] <-t title> <-c ~ completed>',
+            usage: 'todo [thing to do] <-t | title> <-c | completed>',
             examples: ['todo fix the bot', 'todo new image commands -t Images', 'todo added math command -t Math -c'],
         };
 
