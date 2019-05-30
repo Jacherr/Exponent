@@ -35,7 +35,7 @@ class Prefix extends Command {
             let newPrefix
             if(flagNames.includes("s")) {
                 let strArgs = args.join(" ")
-                let newStr = strArgs.replace(/ --s/g, "")
+                let newStr = strArgs.replace(/--s/g, "").trim()
                 args = newStr.split(" ")
                 console.log(args)
                 newPrefix = `${args[0]} `;
