@@ -35,7 +35,7 @@ class Prefix extends Command {
             let newPrefix
             if(flagNames.includes("s")) {
                 let strArgs = args.join(" ")
-                let newStr = strArgs.replace(/--s /g, "")
+                let newStr = strArgs.replace(/ --s /g, "")
                 args = newStr.split(" ")
                 newPrefix = `${args[0]} `;
                 this.axon.registerGuildPrefix(msg.channel.guild.id, [`${newPrefix} `]);
