@@ -36,8 +36,7 @@ class Prefix extends Command {
             if(flagNames.includes("s")) {
                 let strArgs = args.join(" ")
                 let newStr = strArgs.replace(/--s/g, "").trim()
-                args = newStr.split(" ")
-                newPrefix = `${args[0]} `;
+                newPrefix = `${newStr} `;
                 this.axon.registerGuildPrefix(msg.channel.guild.id, [`${newPrefix}`]);
                 return this.sendSuccess(msg.channel, `The prefix is now \`${newPrefix}\` and it requires a space.`);
             } else {
