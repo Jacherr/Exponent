@@ -3,7 +3,7 @@ import { Module } from 'axoncore';
 import * as commands from './commands/index';
 // const index = require('./index/index');;
 
-class Private extends Module {
+class Tags extends Module {
     constructor(...args) {
         super(...args);
 
@@ -21,4 +21,4 @@ class Private extends Module {
     }
 }
 
-export default Private;
+export default Tags;
