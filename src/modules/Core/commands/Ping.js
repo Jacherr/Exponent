@@ -29,7 +29,7 @@ class Ping extends Command {
     async execute( { msg } ) {
         const start = Date.now();
 
-        const mess = await this.sendMessage(msg.channel, 'Pong! ');
+        const mess = await this.sendMessage(msg.channel, '\`ms\`');
 
         if (!mess) {
             return null;
@@ -37,7 +37,7 @@ class Ping extends Command {
 
         const diff = (Date.now() - start);
 
-        return this.editMessage(mess, `Pong! \`${diff}ms\``);
+        return this.editMessage(mess, `\`${diff}ms\``);
     }
 }
 
