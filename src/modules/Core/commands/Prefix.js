@@ -37,6 +37,7 @@ class Prefix extends Command {
                 let strArgs = args.join(" ")
                 let newStr = strArgs.replace(/ --s/g, "")
                 args = newStr.split(" ")
+                console.log(args)
                 newPrefix = `${args[0]} `;
                 this.axon.registerGuildPrefix(msg.channel.guild.id, [`${newPrefix} `]);
                 return this.sendSuccess(msg.channel, `The prefix is now \`${newPrefix}\` and it requires a space.`);
