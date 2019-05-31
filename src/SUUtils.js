@@ -63,6 +63,18 @@ class SUUtils extends Utils {
         }
         return flags
     }
+
+    divideArray(array, size) {
+        let dividedArray = []
+        while(array.size > size) {
+            dividedArray.push(array.slice(0, 10))
+            array.splice(0 ,10)
+        }
+        if(array.size > 0) {
+            dividedArray.push(array)
+        }
+        return dividedArray
+    }
 }
 
 export default SUUtils;
