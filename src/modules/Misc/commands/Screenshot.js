@@ -47,6 +47,7 @@ class Screenshot extends Command {
                 else {
                     message.delete();
                     msg.channel.createMessage(`\`${Date.now() - start}ms\``, { file: response.body, name: `screenshot.png` });
+                    console.log(response.body)
                 };
             });
     }
