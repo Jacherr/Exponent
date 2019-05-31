@@ -66,11 +66,11 @@ class SUUtils extends Utils {
 
     divideArray(array, size) {
         let dividedArray = []
-        while(array.size > size) {
+        while(array.length > size) {
             dividedArray.push(array.slice(0, 10))
             array.splice(0 ,10)
         }
-        if(array.size > 0) {
+        if(array.length > 0) {
             dividedArray.push(array)
         }
         return dividedArray
