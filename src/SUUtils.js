@@ -67,8 +67,8 @@ class SUUtils extends Utils {
     divideArray(array, size) {
         let dividedArray = []
         while(array.length > size) {
-            dividedArray.push(array.slice(0, 10))
-            array.splice(0 ,10)
+            dividedArray.push(array.slice(0, size))
+            array.splice(0, size)
         }
         if(array.length > 0) {
             dividedArray.push(array)
