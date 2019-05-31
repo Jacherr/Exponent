@@ -75,6 +75,7 @@ class Edges extends Command {
                 }
                 else {
                     message.delete();
+                    console.log(response.body)
                     if(extension.startsWith('png') || extension.startsWith('jpeg') || extension.startsWith('jpg')) {
                         msg.channel.createMessage(`\`${Date.now() - start}ms\``,{ file: response.body, name: `edges.png` });
                     } else {
