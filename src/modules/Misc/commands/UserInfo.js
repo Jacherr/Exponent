@@ -46,8 +46,10 @@ class UserInfo extends Command {
         }
         let invalidUsers = []
         let resolvedUsers = []
+        console.log(usersToResolve)
         usersToResolve.forEach(element => {
             element.trim()
+            console.log(element)
             let user = this.Resolver.member(msg.channel.guild, element);
             if(!user) invalidUsers.push({content: element, position: i})
             else resolvedUsers.push(user)
@@ -58,7 +60,7 @@ class UserInfo extends Command {
         }
         if(invalidUsers.length > 0) {
             let invalidToSend = invalidUsers.map(i => `\`${i.content}\` in position ${i.position}`).join("\n")
-            this.sendError(msg.channel, `The following users are invalid and were skipped: ${invalidToSend}`)
+            this.sendError(msg.channel, `The following users are invalid and were skipped: \n${invalidToSend}`)
         }
         let pages = []
         resolvedUsers.forEach(user => {
