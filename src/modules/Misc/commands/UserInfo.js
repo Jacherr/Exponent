@@ -48,7 +48,7 @@ class UserInfo extends Command {
         let resolvedUsers = []
         console.log(usersToResolve)
         usersToResolve.forEach(element => {
-            element.trim()
+            element = element.trim()
             console.log(element)
             let user = this.Resolver.member(msg.channel.guild, element);
             if(!user) invalidUsers.push({content: element, position: i})
