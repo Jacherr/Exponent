@@ -88,7 +88,7 @@ class UserInfo extends Command {
                         inline: true
                     },
                     {
-                        name: "Join date",
+                        name: "Creation date",
                         value: new Date(user.user.createdAt).toISOString().replace(/T/, ' ').replace(/\..+/, ''),
                         inline: true
                     }
