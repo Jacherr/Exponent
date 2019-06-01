@@ -53,7 +53,7 @@ class UserInfo extends Command {
             else resolvedUsers.push(user)
             i++
         });
-        if(invalidUsers.length = usersToResolve.length) {
+        if(invalidUsers.length == usersToResolve.length) {
             return this.sendError(msg.channel, `You didn't provide any valid users.`)
         }
         if(invalidUsers.length > 0) {
