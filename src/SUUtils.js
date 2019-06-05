@@ -75,6 +75,13 @@ class SUUtils extends Utils {
         }
         return dividedArray
     }
+
+    snowflakeToDate(snowflake) {
+        const Epoch = 1420070400000;
+        const Binary = (parseInt(snowflake, 10)).toString(2).padStart(64, '0');
+        const Timestamp = parseInt(Binary.substring(0, 42), 2) + Epoch;
+        return (new Date(Timestamp).toDateString() + ' ' + new Date(Timestamp).toLocaleTimeString());
+    }
 }
 
 export default SUUtils;
