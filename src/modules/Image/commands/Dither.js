@@ -63,7 +63,7 @@ class Dither extends Command {
                 images: files,
                 args: {
                     gif: gif,
-                    text: [ '-blur', '0x30', '+clone', '+dither', '-colors', '24', '-resize', size],
+                    text: [ '-blur', '0x5', '+clone', '+dither', '-colors', '24', '-resize', size],
                 }
             })
             .end((err, response) => {
