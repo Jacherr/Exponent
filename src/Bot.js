@@ -6,12 +6,12 @@ import tokenConf from './configs/tokenConf.json';
 import templateConf from './configs/templateConf.json';
 
 import SUUtils from './SUUtils';
+import { Mongoose } from 'mongoose';
 
 const AxonOptions = {
     axonConf,
     templateConf,
     tokenConf,
-
     utils: SUUtils,
 };
 
@@ -29,7 +29,8 @@ const client = new Client(
 );
 const Bot = new SUClient(
     client,
-    AxonOptions
+    AxonOptions,
+    Mongoose
 );
 
 export default Bot;

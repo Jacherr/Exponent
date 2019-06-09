@@ -15,9 +15,10 @@ import * as modules from './modules/index';
  * @extends {AxonCore.AxonClient}
  */
 class SUClient extends AxonClient {
-    constructor(client, axonOptions) {
+    constructor(client, axonOptions, mongoose) {
         super(client, axonOptions, modules);
-        this.Parser = new Parser()
+        this.Parser = new Parser();
+        this._mongoose = mongoose;
     }
 
     get Resolver() {
