@@ -8,3 +8,4 @@ export { default as Edges } from './Edges';
 export { default as Depolarise } from './Depolarise';
 export { default as Barrel } from './Barrel';
 export { default as Dither } from './Dither';
+export { default as Grain } from './Grain';
