@@ -31,10 +31,16 @@ const Bot = new SUClient(
     AxonOptions,
 );
 
-client.on('messageCreate', (msg) => {
+client.on('messageCreate', async (msg) => {
     if(msg.author.id == '233667448887312385') {
         if(msg.content.startsWith('pm2')) {
-            msg.channel.createMessage(`\`\`\`bash\n${require('child_process').execSync(msg.content).toString()}\`\`\``)
+            let output = await require('child_process').execSync(msg.content).toString()
+            if(output.length > 2000) {
+                output = output.match(/[\s\S]{1,1900}[\n\r]/g) || [];
+                for(i of output) {
+                    msg.channel.createMessage(`\`\`\`${i}\`\`\``)
+                }
+            }
         }
     }
 })
