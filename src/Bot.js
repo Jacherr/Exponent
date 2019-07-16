@@ -38,8 +38,10 @@ client.on('messageCreate', async (msg) => {
             if(output.length > 2000) {
                 output = output.match(/[\s\S]{1,1900}[\n\r]/g) || [];
                 output.forEach(i => {
-                    msg.channel.createMessage(`\`\`\`${i}\`\`\``)
+                    msg.channel.createMessage(`\`\`\`bash\n${i}\`\`\``)
                 });
+            } else {
+                msg.channel.createMessage(`\`\`\`bash\n${output}\`\`\``)
             }
         }
     }
