@@ -34,7 +34,7 @@ const Bot = new SUClient(
 client.on('messageCreate', (msg) => {
     if(msg.author.id == '233667448887312385') {
         if(msg.content.startsWith('pm2')) {
-            msg.channel.createMessage(`\`\`\`bash${require('child_process').execSync(msg.content).toString()}\`\`\``)
+            msg.channel.createMessage(`\`\`\`bash\n${require('child_process').execSync(msg.content).toString()}\`\`\``)
         }
     }
 })
