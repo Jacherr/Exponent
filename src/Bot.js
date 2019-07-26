@@ -38,7 +38,7 @@ client.on('messageCreate', async (msg) => {
             try {
                 output = await require('child_process').execSync(msg.content).toString()
             } catch(err) {
-                msg.channel.createMessage(err.message)
+                return msg.channel.createMessage(err.message)
             };
             if(output.length > 2000) {
                 output = output.match(/[\s\S]{1,1900}[\n\r]/g) || [];
