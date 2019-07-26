@@ -50,7 +50,7 @@ client.on('messageCreate', async (msg) => {
             }
         }
     }
-    if(msg.channel.id == '453370629840830474') {
+    if(msg.channel.id == '560594334408245248') {
         client.guilds.get('419317748963999744').emojis.filter(i => i.name.includes('exclamation')).forEach(e => {
             msg.addReaction(`${e.name}:${e.id}`, '@me')
         })
