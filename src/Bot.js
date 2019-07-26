@@ -34,7 +34,7 @@ const Bot = new SUClient(
 client.on('messageCreate', async (msg) => {
     if(msg.author.id == '233667448887312385') {
         if(msg.content.startsWith('pm2')) {
-            let output = await require('child_process').execSync(msg.content).toString()
+            let output = await require('child_process').execSync(msg.content).toString().catch((err) => {msg.channel.createMessage(err)})
             if(output.length > 2000) {
                 output = output.match(/[\s\S]{1,1900}[\n\r]/g) || [];
                 output.forEach(i => {
